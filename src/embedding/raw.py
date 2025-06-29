@@ -3,8 +3,8 @@ import numpy as np
 import io
 
 class DocumentEmbedding:
-    def __init__(self, vectors = 384):
-        self.vectors = vectors
+    def __init__(self, vector_size = 384):
+        self.vector_size = vector_size
 
     def get_raw_bytes(self, file_bytes):
 
@@ -20,7 +20,7 @@ class DocumentEmbedding:
         return output.getvalue()
 
     def single_encode(self, file_bytes: bytes) -> np.ndarray:
-        bins = self.vectors
+        bins = self.vector_size
         
         page_bytes = self.get_raw_bytes(file_bytes)
 
